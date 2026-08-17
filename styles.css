@@ -1,0 +1,140 @@
+:root {
+  --bg: #000;
+  --ink: #eaeaea;
+  --mute: #5a5a5a;
+  --whisper: #3d3d3d;
+  --up: #6f8f74;
+  --dn: #8a5c5c;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+.clock {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--mute);
+  font-variant-numeric: tabular-nums;
+}
+
+.lock {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12vh 8vw 10vh;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.hero {
+  font-size: clamp(5.5rem, 18vw, 11rem);
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  line-height: 0.9;
+  margin-left: -0.04em;
+}
+
+.reason {
+  margin-top: 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #9a9a9a;
+  letter-spacing: 0.01em;
+  max-width: 36rem;
+}
+
+.figures {
+  display: flex;
+  gap: 3.5rem;
+  margin-top: 4.5rem;
+  flex-wrap: wrap;
+}
+
+.fig .num {
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.fig .lab {
+  margin-top: 0.45rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  color: var(--mute);
+}
+
+.fig .meta {
+  margin-top: 0.28rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: var(--whisper);
+  text-transform: uppercase;
+}
+
+.fig .num.up { color: var(--up); }
+.fig .num.dn { color: var(--dn); }
+
+.fig .num.pulse {
+  animation: pulse 0.9s ease-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.35; }
+  100% { opacity: 1; }
+}
+
+.whisper {
+  margin-top: 0.85rem;
+  font-size: 0.8rem;
+  color: #6e6e6e;
+  letter-spacing: 0.01em;
+  max-width: 38rem;
+  line-height: 1.55;
+}
+
+.whisper:first-of-type,
+#m30 { margin-top: 3.6rem; }
+
+.whisper.sl { color: #8a8a8a; }
+
+.feed {
+  list-style: none;
+  margin-top: 3.4rem;
+  max-width: 40rem;
+}
+
+.feed li {
+  font-size: 0.62rem;
+  color: var(--whisper);
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 720px) {
+  .lock { padding: 18vh 1.4rem 8vh; }
+  .figures { gap: 1.8rem 2.2rem; }
+  .feed li { white-space: normal; }
+  .clock { top: 0.9rem; right: 1rem; }
+}
